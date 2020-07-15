@@ -1,0 +1,17 @@
+{
+  "name": "iris-node-pq-monitor",
+  "version": "0.1.0",
+  "description": "An example Node Client that sends emails on failed PQs",
+  "main": "app.js",
+  "dependencies": {
+    "nodemailer": "^6.4.10",
+    "ws": "^7.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
