@@ -16,24 +16,29 @@ async function start() {
       await client.login(credentials);
       console.log('Authenticated');
 
-      // Gets a random test account from ethereal
-      const testAccount = await nodemailer.createTestAccount();
-
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false,
-        auth: {
-          user: testAccount.user,
-          pass: testAccount.pass
-        }
-      });
-
+      let transporter = await getNotificationConfig();
       new PQAlertMonitor(client, transporter);
     });
   } catch(err) {
     console.error(err);
   }
+}
+
+async function getNotificationConfig() {
+  // Gets a random test account from ethereal
+  const testAccount = await nodemailer.createTestAccount();
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    secure: false,
+    auth: {
+      user: testAccount.user,
+      pass: testAccount.pass
+    }
+  });
+
+  return transporter;
 }
 
 class PQAlertMonitor {
