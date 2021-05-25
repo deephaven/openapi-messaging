@@ -4,7 +4,7 @@
   "description": "An example Node Client that sends emails on failed PQs",
   "main": "app.js",
   "dependencies": {
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "ws": "^7.3.0"
   },
   "devDependencies": {},
